@@ -69,97 +69,15 @@ class Program
                     break;
 
                 case "2":
-
-                    Console.WriteLine("Ürün ID giriniz:");
-                    int girilenId;
-
-                    if (int.TryParse(Console.ReadLine(), out girilenId))
-                    {
-                        Product? secilenUrun = UrunBul(menu, girilenId);
-
-                        if (secilenUrun != null)
-                        {
-                            sepet.Add(secilenUrun);
-
-                            SepetiKaydet(sepet);
-
-                            Console.WriteLine($"{secilenUrun.Name} sepete eklendi!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Ürün bulunamadı.");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Geçersiz giriş.");
-                    }
-
+                    SepeteEkle(menu, sepet);
                     break;
 
                 case "3":
-
-                    if (sepet.Count == 0)
-                    {
-                        Console.WriteLine("Sepet boş.");
-                    }
-                    else
-                    {
-                        double toplam = 0;
-
-                        Console.WriteLine("=== SEPET ===");
-
-                        foreach (var urun in sepet)
-                        {
-                            Console.WriteLine($"{urun.Name} - {urun.Price} TL");
-                            toplam += urun.Price;
-                        }
-
-                        Console.WriteLine("----------------------");
-                        Console.WriteLine($"Toplam Tutar: {toplam:F2} TL");
-                    }
-
+                    SepetiListele(sepet);
                     break;
 
                 case "4":
-
-                    if (sepet.Count == 0)
-                    {
-                        Console.WriteLine("Sepet boş.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("=== SEPET ===");
-
-                        for (int i = 0; i < sepet.Count; i++)
-                        {
-                            Console.WriteLine($"{i + 1} - {sepet[i].Name} - {sepet[i].Price} TL");
-                        }
-
-                        Console.Write("Silmek istediğiniz ürün numarası: ");
-                        int silIndex;
-
-                        if (int.TryParse(Console.ReadLine(), out silIndex))
-                        {
-                            if (silIndex > 0 && silIndex <= sepet.Count)
-                            {
-                                sepet.RemoveAt(silIndex - 1);
-
-                                SepetiKaydet(sepet);
-
-                                Console.WriteLine("Ürün silindi.");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Geçersiz numara.");
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Geçersiz giriş.");
-                        }
-                    }
-
+                    SepettenSil(sepet);
                     break;
 
                 case "5":
@@ -215,6 +133,89 @@ class Program
             Console.WriteLine("menu.json okunamadı!");
             Console.WriteLine(ex.Message);
             return null;
+        }
+    }
+
+    static void SepeteEkle(Menu menu, List<Product> sepet)
+    {
+        Console.WriteLine("Ürün ID giriniz:");
+
+        if (int.TryParse(Console.ReadLine(), out int girilenId))
+        {
+            Product? secilenUrun = UrunBul(menu, girilenId);
+
+            if (secilenUrun != null)
+            {
+                sepet.Add(secilenUrun);
+                SepetiKaydet(sepet);
+                Console.WriteLine($"{secilenUrun.Name} sepete eklendi!");
+            }
+            else
+            {
+                Console.WriteLine("Ürün bulunamadı.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Geçersiz giriş.");
+        }
+    }
+
+    static void SepetiListele(List<Product> sepet)
+    {
+        if (sepet.Count == 0)
+        {
+            Console.WriteLine("Sepet boş.");
+            return;
+        }
+
+        double toplam = 0;
+
+        Console.WriteLine("=== SEPET ===");
+
+        foreach (var urun in sepet)
+        {
+            Console.WriteLine($"{urun.Name} - {urun.Price} TL");
+            toplam += urun.Price;
+        }
+
+        Console.WriteLine("----------------------");
+        Console.WriteLine($"Toplam Tutar: {toplam:F2} TL");
+    }
+
+    static void SepettenSil(List<Product> sepet)
+    {
+        if (sepet.Count == 0)
+        {
+            Console.WriteLine("Sepet boş.");
+            return;
+        }
+
+        Console.WriteLine("=== SEPET ===");
+
+        for (int i = 0; i < sepet.Count; i++)
+        {
+            Console.WriteLine($"{i + 1} - {sepet[i].Name} - {sepet[i].Price} TL");
+        }
+
+        Console.Write("Silmek istediğiniz ürün numarası: ");
+
+        if (int.TryParse(Console.ReadLine(), out int silIndex))
+        {
+            if (silIndex > 0 && silIndex <= sepet.Count)
+            {
+                sepet.RemoveAt(silIndex - 1);
+                SepetiKaydet(sepet);
+                Console.WriteLine("Ürün silindi.");
+            }
+            else
+            {
+                Console.WriteLine("Geçersiz numara.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Geçersiz giriş.");
         }
     }
 }
