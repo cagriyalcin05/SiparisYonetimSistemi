@@ -11,35 +11,30 @@ using System.Collections.Generic;
 
 class Program
 {
-    const string SepetDosyaYolu = "sepet.json";   
+    const string SepetDosyaYolu = "sepet.json";
     static void Main()
     {
-        Menu menu;
 
-        try
+        Menu? menu = LoadMenu("menu.json");
+
+        if (menu == null)
         {
-            string json = File.ReadAllText("menu.json");
-            menu = JsonSerializer.Deserialize<Menu>(json)!;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("menu.json okunamadı!");
-            Console.WriteLine(ex.Message);
             return;
         }
+
         List<Product> sepet;
 
-            if (File.Exists("sepet.json"))
-            {
-                string sepetJson = File.ReadAllText("sepet.json");
-                sepet = JsonSerializer.Deserialize<List<Product>>(sepetJson) ?? new List<Product>();
+        if (File.Exists("sepet.json"))
+        {
+            string sepetJson = File.ReadAllText("sepet.json");
+            sepet = JsonSerializer.Deserialize<List<Product>>(sepetJson) ?? new List<Product>();
         }
-            else
-            {
-                sepet = new List<Product>();
-            }
+        else
+        {
+            sepet = new List<Product>();
+        }
 
-            bool calisiyor = true;
+        bool calisiyor = true;
 
         while (calisiyor)
 
@@ -206,5 +201,20 @@ class Program
             }
         }
         return null;
+    }
+
+    static Menu? LoadMenu(string path)
+    {
+        try
+        {
+            string json = File.ReadAllText(path);
+            return JsonSerializer.Deserialize<Menu>(json);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("menu.json okunamadı!");
+            Console.WriteLine(ex.Message);
+            return null;
+        }
     }
 }
