@@ -1,0 +1,45 @@
+﻿{
+  "RestaurantName": "Çağrı Restoran",
+  "Categories": [
+    {
+      "CategoryName": "Pideler",
+      "Products": [
+        {
+          "Id": 1,
+          "Name": "Kıymalı Pide",
+          "Price": 150.0
+        },
+        {
+          "Id": 2,
+          "Name": "Kuşbaşılı Pide",
+          "Price": 180.0
+        },
+        {
+          "Id": 3,
+          "Name": "Kaşarlı Pide",
+          "Price": 130.0
+        }
+      ]
+    },
+    {
+      "CategoryName": "İçecekler",
+      "Products": [
+        {
+          "Id": 10,
+          "Name": "Ayran",
+          "Price": 30.0
+        },
+        {
+          "Id": 11,
+          "Name": "Kola",
+          "Price": 45.0
+        },
+        {
+          "Id": 12,
+          "Name": "Su",
+          "Price": 15.0
+        }
+      ]
+    }
+  ]
+}
