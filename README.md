@@ -60,7 +60,7 @@ SiparisYonetimSistemi/
 
 1. Projeyi klonlayın:
 
-git clone https://github.com/kullaniciadi/SiparisYonetimSistemi.git
+git clone https://github.com/cagriyalcin05/SiparisYonetimSistemi.git
 
 
 2. Visual Studio ile açın.
