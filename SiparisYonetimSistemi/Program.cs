@@ -55,6 +55,7 @@ class Program
             Console.WriteLine("4 - Sipariş Sil");
             Console.WriteLine("5 - Çıkış");
             Console.WriteLine("6 - Uygulama Hakkında");
+            Console.WriteLine("7 - Sepeti Temizle");
             Console.Write("Seçiminiz: ");
 
             string secim = Console.ReadLine() ?? "";
@@ -75,15 +76,15 @@ class Program
                     break;
 
                 case "2":
-                    SepeteEkle(menu, sepet);   
+                    SepeteEkle(menu, sepet);
                     break;
 
                 case "3":
-                    SepetiListele(sepet);      
+                    SepetiListele(sepet);
                     break;
 
                 case "4":
-                    SepettenSil(sepet);        
+                    SepettenSil(sepet);
                     break;
 
                 case "5":
@@ -101,12 +102,15 @@ class Program
                 default:
                     Console.WriteLine("Geçersiz seçim!");
                     break;
+
+                case "7":
+                    SepetiTemizle(sepet);
+                    break;
             }
             Console.WriteLine("\nDevam etmek için bir tuşa basın...");
             Console.ReadKey();
-
-
         }
+
     }
     static void SepetiKaydet(List<CartItem> sepet)
     {
@@ -244,6 +248,28 @@ class Program
         else
         {
             Console.WriteLine("Geçersiz giriş.");
+        }      
+    }
+    static void SepetiTemizle(List<CartItem> sepet)
+    {
+        if (sepet.Count == 0)
+        {
+            Console.WriteLine("Sepet zaten boş.");
+            return;
+        }
+
+        Console.Write("Sepeti tamamen temizlemek istiyor musunuz? (E/H): ");
+        string? cevap = Console.ReadLine();
+
+        if (cevap?.ToUpper() == "E")
+        {
+            sepet.Clear();
+            SepetiKaydet(sepet);
+            Console.WriteLine("Sepet temizlendi.");
+        }
+        else
+        {
+            Console.WriteLine("Sepet temizleme iptal edildi.");
         }
     }
 }
