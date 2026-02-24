@@ -13,6 +13,12 @@ class Program
 {
     const string SepetDosyaYolu = "sepet.json";
     const string MenuDosyaYolu = "menu.json";
+    public class CartItem
+    {
+        public Product? Product { get; set; }
+        public int Quantity { get; set; }
+    }
+
     static void Main()
     {
         Menu? menu = LoadMenu(MenuDosyaYolu);
