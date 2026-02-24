@@ -15,7 +15,6 @@ Bu proje;
 - Liste yönetimini  
 - Metotlara bölünmüş temiz kod yazmayı  
 - Git branch & merge yapısını kullanmayı  
-- Versiyonlama (tag) mantığını uygulamayı  
 
 öğrenmek amacıyla geliştirilmiştir.
 
@@ -23,24 +22,14 @@ Bu proje;
 
 ## 🚀 Özellikler
 
-### 🔹 v1.0 Özellikleri
-
 - 📋 Menü listeleme (JSON’dan dinamik veri okuma)  
 - ➕ Sepete ürün ekleme  
+- 🔢 Aynı ürün eklenirse adet artırma (Quantity mantığı - CartItem modeli)  
 - 📦 Sepeti görüntüleme  
 - ❌ Sepetten ürün silme  
-- 💰 Toplam tutar hesaplama  
+- 🧹 Sepeti tamamen temizleme  
+- 💰 Toplam tutar hesaplama (adet destekli)  
 - 💾 Sepet verisini dosyaya kaydetme  
-
-### 🔹 v2.0 Güncellemeleri
-
-- 🆕 CartItem modeli eklendi  
-- 🔢 Quantity (adet) mantığı eklendi  
-  - Aynı ürün tekrar eklenirse yeni kayıt oluşturmaz  
-  - Mevcut ürünün adedi artırılır  
-- 🧹 Sepeti tamamen temizleme özelliği eklendi  
-- 📦 Sepet JSON yapısı güncellendi  
-- 🏷️ v2.0 versiyon etiketi oluşturuldu  
 
 ---
 
@@ -55,6 +44,7 @@ Bu proje;
 
 ## 📂 Proje Yapısı
 
+```text
 SiparisYonetimSistemi/
 │
 ├── Program.cs
@@ -64,6 +54,7 @@ SiparisYonetimSistemi/
 ├── menu.json
 ├── sepet.json
 └── README.md
+```
 
 ---
 
@@ -74,31 +65,35 @@ Bu projede aşağıdaki Git işlemleri uygulanmıştır:
 - Repository oluşturma  
 - Branch oluşturma  
 - Feature branch yapısı  
-- Pull Request (PR) süreci  
 - Merge işlemleri  
 - Commit mesaj standardı (feat, docs, chore vb.)  
-- Versiyon etiketi (v1.0 → v2.0)  
+- Versiyon etiketi (v1.0, v2.0)  
 
 ---
 
 ## 🏷️ Versiyon
 
-v2.0
+v2.0  
 
-- CartItem modeline geçildi  
-- Quantity destekli sepet yapısı  
-- Sepet temizleme özelliği  
+### v2.0 Güncellemeleri
+
+- CartItem modeli eklendi  
+- Quantity (adet) mantığı eklendi  
+- Sepeti temizleme özelliği eklendi  
+- Sepet JSON yapısı güncellendi  
 
 ---
 
 ## ⚙️ Çalıştırma
 
-1️⃣ Projeyi klonlayın:
+### 1️⃣ Projeyi klonlayın
 
+```bash
 git clone https://github.com/cagriyalcin05/SiparisYonetimSistemi.git
+```
 
-2️⃣ Visual Studio ile açın.  
-3️⃣ Debug modunda çalıştırın.
+### 2️⃣ Visual Studio ile açın  
+### 3️⃣ Debug modunda çalıştırın
 
 ---
 
