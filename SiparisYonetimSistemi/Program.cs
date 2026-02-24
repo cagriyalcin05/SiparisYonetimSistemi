@@ -12,10 +12,10 @@ using System.Collections.Generic;
 class Program
 {
     const string SepetDosyaYolu = "sepet.json";
+    const string MenuDosyaYolu = "menu.json";
     static void Main()
     {
-
-        Menu? menu = LoadMenu("menu.json");
+        Menu? menu = LoadMenu(MenuDosyaYolu);
 
         if (menu == null)
         {
@@ -24,9 +24,9 @@ class Program
 
         List<Product> sepet;
 
-        if (File.Exists("sepet.json"))
+        if (File.Exists(SepetDosyaYolu))
         {
-            string sepetJson = File.ReadAllText("sepet.json");
+            string sepetJson = File.ReadAllText(SepetDosyaYolu);
             sepet = JsonSerializer.Deserialize<List<Product>>(sepetJson) ?? new List<Product>();
         }
         else
@@ -69,15 +69,15 @@ class Program
                     break;
 
                 case "2":
-                    SepeteEkle(menu, sepet);
+                    SepeteEkle(menu, sepet);   
                     break;
 
                 case "3":
-                    SepetiListele(sepet);
+                    SepetiListele(sepet);      
                     break;
 
                 case "4":
-                    SepettenSil(sepet);
+                    SepettenSil(sepet);        
                     break;
 
                 case "5":
@@ -181,6 +181,7 @@ class Program
 
         Console.WriteLine("----------------------");
         Console.WriteLine($"Toplam Tutar: {toplam:F2} TL");
+        Console.WriteLine($"Toplam ürün sayısı: {sepet.Count}");
     }
 
     static void SepettenSil(List<Product> sepet)
