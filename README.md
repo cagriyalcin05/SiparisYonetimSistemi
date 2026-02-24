@@ -10,11 +10,12 @@ C# ve JSON kullanılarak geliştirilmiştir.
 Bu proje;
 
 - C# konsol uygulaması geliştirmeyi  
-- JSON dosyasından veri okumayı  
-- Dosyaya veri kaydetmeyi  
-- Liste yönetimini  
-- Metotlara bölünmüş temiz kod yazmayı  
-- Git branch & merge yapısını kullanmayı  
+- JSON dosyası ile veri okuma ve yazma işlemlerini uygulamayı  
+- Nesne yönelimli modelleme (CartItem, Product, Category) yapmayı  
+- Liste ve koleksiyon yönetimini  
+- Metotlara bölünmüş temiz ve okunabilir kod yazmayı  
+- Uygulama durumu (state) yönetimini ve kalıcı veri saklamayı  
+- Git branch, merge ve versiyonlama (tag) mantığını uygulamayı
 
 öğrenmek amacıyla geliştirilmiştir.
 
@@ -24,12 +25,13 @@ Bu proje;
 
 - 📋 Menü listeleme (JSON’dan dinamik veri okuma)  
 - ➕ Sepete ürün ekleme  
-- 🔢 Aynı ürün eklenirse adet artırma (Quantity mantığı - CartItem modeli)  
-- 📦 Sepeti görüntüleme  
+- 🔢 Aynı ürün tekrar eklenirse adet artırma (CartItem & Quantity mantığı)  
+- 📦 Sepeti görüntüleme (adet destekli listeleme)  
 - ❌ Sepetten ürün silme  
 - 🧹 Sepeti tamamen temizleme  
-- 💰 Toplam tutar hesaplama (adet destekli)  
-- 💾 Sepet verisini dosyaya kaydetme  
+- 💰 Toplam tutar hesaplama (adet x fiyat)  
+- 💾 Sepet verisini JSON dosyasına kaydetme  
+- 🔁 Uygulama yeniden başlatıldığında sepeti otomatik yükleme   
 
 ---
 
@@ -63,11 +65,13 @@ SiparisYonetimSistemi/
 Bu projede aşağıdaki Git işlemleri uygulanmıştır:
 
 - Repository oluşturma  
-- Branch oluşturma  
-- Feature branch yapısı  
-- Merge işlemleri  
-- Commit mesaj standardı (feat, docs, chore vb.)  
-- Versiyon etiketi (v1.0, v2.0)  
+- Ana branch (main) yapısı  
+- Feature branch üzerinden geliştirme (feature/cartitem-upgrade)  
+- Küçük ve anlamlı commit’ler (feat, chore vb.)  
+- Pull Request açma  
+- PR üzerinden merge işlemi  
+- Versiyon etiketi oluşturma (v1.0, v2.0)  
+- Tag’leri remote’a push etme  
 
 ---
 
@@ -78,9 +82,12 @@ v2.0
 ### v2.0 Güncellemeleri
 
 - CartItem modeli eklendi  
-- Quantity (adet) mantığı eklendi  
-- Sepeti temizleme özelliği eklendi  
+- Quantity (adet artırma) mantığı eklendi  
+- Sepet veri yapısı List<Product> → List<CartItem> olarak güncellendi  
+- Toplam tutar hesaplama adet destekli hale getirildi  
+- Sepeti tamamen temizleme özelliği eklendi  
 - Sepet JSON yapısı güncellendi  
+- v2.0 versiyon etiketi oluşturuldu 
 
 ---
 
