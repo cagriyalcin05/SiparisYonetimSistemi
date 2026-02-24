@@ -88,6 +88,7 @@ class Program
                     break;
 
                 case "5":
+                    SepetiKaydet(sepet);
                     calisiyor = false;
                     Console.WriteLine("Programdan çıkılıyor...");
                     break;
