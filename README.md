@@ -1,72 +1,74 @@
-📦 Sipariş Yönetim Sistemi
-📌 Proje Hakkında
+# 🛒 Sipariş Yönetim Sistemi
 
-Bu proje, C# kullanılarak geliştirilmiş konsol tabanlı bir sipariş yönetim uygulamasıdır.
-Menü verileri JSON formatında okunur ve kullanıcı sipariş işlemlerini gerçekleştirebilir.
+Konsol tabanlı bir sipariş yönetim uygulamasıdır.  
+C# ve JSON kullanılarak geliştirilmiştir.
 
-Uygulama, temel yazılım prensipleri ve Git versiyon kontrol sistemi kullanılarak geliştirilmiştir.
+---
 
-🚀 Özellikler
+## 🎯 Proje Amacı
 
-📋 Menü listeleme
+Bu proje;
 
-➕ Ürün sepete ekleme
+- C# konsol uygulaması geliştirmeyi
+- JSON dosyasından veri okumayı
+- Dosyaya veri kaydetmeyi
+- Liste yönetimini
+- Metotlara bölünmüş temiz kod yazmayı
+- Git branch & merge yapısını kullanmayı
 
-📦 Sepet görüntüleme
+öğrenmek amacıyla geliştirilmiştir.
 
-❌ Sepetten ürün silme
+---
 
-💰 Toplam tutar hesaplama
+## 🚀 Özellikler
 
-📄 JSON dosyasından dinamik veri okuma
+- 📋 Menü listeleme (JSON’dan dinamik veri okuma)
+- ➕ Sepete ürün ekleme
+- 📦 Sepeti görüntüleme
+- ❌ Sepetten ürün silme
+- 💰 Toplam tutar hesaplama
+- 💾 Sepet verisini dosyaya kaydetme
 
-💾 Sepet verisini dosyaya kaydetme
+---
 
-🛠 Kullanılan Teknolojiler
+## 🛠 Kullanılan Teknolojiler
 
-C#
+- C#
+- .NET
+- System.Text.Json
+- Git (branch & merge yapısı)
 
-.NET
+---
 
-System.Text.Json
+## 📂 Proje Yapısı
 
-Git (branch & merge yapısı kullanılmıştır)
 
-📂 Proje Yapısı
 SiparisYonetimSistemi/
 │
 ├── Program.cs
+├── Menu.cs
 ├── Category.cs
 ├── Product.cs
-├── Menu.cs
 ├── menu.json
 ├── sepet.json
 └── README.md
-🔀 Git Kullanımı
 
-Bu projede aşağıdaki Git işlemleri uygulanmıştır:
 
-Repository oluşturma
+---
 
-Branch oluşturma
+## ⚙️ Çalıştırma
 
-Feature branch yapısı
+1. Projeyi klonlayın:
 
-Merge işlemleri
+git clone https://github.com/kullaniciadi/SiparisYonetimSistemi.git
 
-Commit mesaj standardı (feat, chore vb.)
 
-▶️ Çalıştırma
+2. Visual Studio ile açın.
+3. Debug modunda çalıştırın.
 
-Projeyi klonlayın:
+---
 
-git clone <repo-url>
+## 👨‍💻 Geliştirici
 
-Visual Studio ile açın.
-
-Debug modunda çalıştırın.
-
-👨‍💻 Geliştirici
-
-İbrahim Çağrı Yalçın
+İbrahim Çağrı Yalçın  
 2026
