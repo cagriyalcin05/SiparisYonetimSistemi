@@ -54,7 +54,7 @@ SiparisYonetimSistemi/
 ├── Category.cs
 ├── Product.cs
 ├── menu.json
-├── sepet.json
+├── sepet.json (uygulama çalıştığında otomatik oluşturulur)
 └── README.md
 ```
 
