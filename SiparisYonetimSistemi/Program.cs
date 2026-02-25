@@ -4,6 +4,7 @@
     Açıklama: Konsol tabanlı, JSON destekli sipariş yönetim uygulaması.
     Tarih: 2026
 */
+using System.Linq;
 using System.Text.Json;
 using System.IO;
 using System;
@@ -21,6 +22,8 @@ class Program
 
     static void Main()
     {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+
         Menu? menu = LoadMenu(MenuDosyaYolu);
 
         if (menu == null)
@@ -84,7 +87,7 @@ class Program
                     break;
 
                 case "4":
-                    SepettenSil(sepet);5
+                    SepettenSil(sepet);
                     break;
 
                 case "5":
@@ -210,7 +213,8 @@ class Program
 
         Console.WriteLine("----------------------");
         Console.WriteLine($"Toplam Tutar: {toplam:F2} TL");
-        Console.WriteLine($"Toplam ürün sayısı: {sepet.Count}");
+        int toplamAdet = sepet.Sum(x => x.Quantity);
+        Console.WriteLine($"Toplam ürün sayısı: {toplamAdet}");
     }
 
     static void SepettenSil(List<CartItem> sepet)
