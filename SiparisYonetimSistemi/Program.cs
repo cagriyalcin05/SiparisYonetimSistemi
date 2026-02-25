@@ -84,7 +84,7 @@ class Program
                     break;
 
                 case "4":
-                    SepettenSil(sepet);
+                    SepettenSil(sepet);5
                     break;
 
                 case "5":
